@@ -1,0 +1,26 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "ajuda": {
+      "home": {
+        "title": "Ajudas",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Ajuda",
+        "createOrEditLabel": "Create or edit a Ajuda",
+        "notFound": "No Ajudas found"
+      },
+      "created": "A new Ajuda is created with identifier {{ param }}",
+      "updated": "A Ajuda is updated with identifier {{ param }}",
+      "deleted": "A Ajuda is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Ajuda {{ id }}?"
+      },
+      "detail": {
+        "title": "Ajuda"
+      },
+      "id": "Id",
+      "titulo": "Titulo",
+      "ajuda": "Ajuda",
+      "topico": "Topico"
+    }
+  }
+}

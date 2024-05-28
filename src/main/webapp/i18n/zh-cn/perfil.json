@@ -1,0 +1,28 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "perfil": {
+      "home": {
+        "title": "Perfils",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "创建新 Perfil",
+        "createOrEditLabel": "创建或编辑 Perfil",
+        "notFound": "No Perfils found"
+      },
+      "created": "Perfil {{ param }} 创建成功",
+      "updated": "Perfil {{ param }} 更新成功",
+      "deleted": "Perfil {{ param }} 删除成功",
+      "delete": {
+        "question": "你确定要删除 Perfil {{ id }} 吗？"
+      },
+      "detail": {
+        "title": "Perfil"
+      },
+      "id": "ID",
+      "nome": "Nome",
+      "descricao": "Descricao",
+      "createdAt": "Created At",
+      "updatedAt": "Updated At",
+      "deletedAt": "Deleted At"
+    }
+  }
+}

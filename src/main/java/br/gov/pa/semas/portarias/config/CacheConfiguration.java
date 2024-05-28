@@ -50,6 +50,17 @@ public class CacheConfiguration {
             createCache(cm, br.gov.pa.semas.portarias.domain.User.class.getName());
             createCache(cm, br.gov.pa.semas.portarias.domain.Authority.class.getName());
             createCache(cm, br.gov.pa.semas.portarias.domain.User.class.getName() + ".authorities");
+            createCache(cm, br.gov.pa.semas.portarias.domain.Topico.class.getName());
+            createCache(cm, br.gov.pa.semas.portarias.domain.Topico.class.getName() + ".ajudas");
+            createCache(cm, br.gov.pa.semas.portarias.domain.Topico.class.getName() + ".topicos");
+            createCache(cm, br.gov.pa.semas.portarias.domain.Ajuda.class.getName());
+            createCache(cm, br.gov.pa.semas.portarias.domain.Ajuda.class.getName() + ".ajudas");
+            createCache(cm, br.gov.pa.semas.portarias.domain.Ajuda.class.getName() + ".topicos");
+            createCache(cm, br.gov.pa.semas.portarias.domain.Portaria.class.getName());
+            createCache(cm, br.gov.pa.semas.portarias.domain.Assunto.class.getName());
+            createCache(cm, br.gov.pa.semas.portarias.domain.Setor.class.getName());
+            createCache(cm, br.gov.pa.semas.portarias.domain.Usuario.class.getName());
+            createCache(cm, br.gov.pa.semas.portarias.domain.Perfil.class.getName());
             // jhipster-needle-ehcache-add-entry
         };
     }

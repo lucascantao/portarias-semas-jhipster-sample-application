@@ -1,0 +1,33 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "portaria": {
+      "home": {
+        "title": "Portarias",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Portaria",
+        "createOrEditLabel": "Créer ou éditer un Portaria",
+        "notFound": "Aucun Portaria trouvé"
+      },
+      "created": "Un nouveau Portaria a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Portaria avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Portaria avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Portaria {{ id }} ?"
+      },
+      "detail": {
+        "title": "Portaria"
+      },
+      "id": "ID",
+      "numero": "Numero",
+      "data": "Data",
+      "createdAt": "Created At",
+      "updatedAt": "Updated At",
+      "deletedAt": "Deleted At",
+      "assunto": "Assunto",
+      "setor": "Setor",
+      "usuario": "Usuario",
+      "updatedBy": "Updated By",
+      "deletedBy": "Deleted By"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "setor": {
+      "home": {
+        "title": "Setors",
+        "refreshListLabel": "Atualizar lista",
+        "createLabel": "Criar novo Setor",
+        "createOrEditLabel": "Criar ou editar Setor",
+        "notFound": "Nenhum Setor encontrado"
+      },
+      "created": "Um novo Setor foi criado com o identificador {{ param }}",
+      "updated": "Um Setor foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Setor foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Setor {{ id }}?"
+      },
+      "detail": {
+        "title": "Setor"
+      },
+      "id": "ID",
+      "nome": "Nome",
+      "sigla": "Sigla",
+      "createdAt": "Created At",
+      "updatedAt": "Updated At",
+      "deletedAt": "Deleted At"
+    }
+  }
+}

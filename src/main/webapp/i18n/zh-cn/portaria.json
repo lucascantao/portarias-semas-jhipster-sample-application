@@ -1,0 +1,33 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "portaria": {
+      "home": {
+        "title": "Portarias",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "创建新 Portaria",
+        "createOrEditLabel": "创建或编辑 Portaria",
+        "notFound": "No Portarias found"
+      },
+      "created": "Portaria {{ param }} 创建成功",
+      "updated": "Portaria {{ param }} 更新成功",
+      "deleted": "Portaria {{ param }} 删除成功",
+      "delete": {
+        "question": "你确定要删除 Portaria {{ id }} 吗？"
+      },
+      "detail": {
+        "title": "Portaria"
+      },
+      "id": "ID",
+      "numero": "Numero",
+      "data": "Data",
+      "createdAt": "Created At",
+      "updatedAt": "Updated At",
+      "deletedAt": "Deleted At",
+      "assunto": "Assunto",
+      "setor": "Setor",
+      "usuario": "Usuario",
+      "updatedBy": "Updated By",
+      "deletedBy": "Deleted By"
+    }
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "setor": {
+      "home": {
+        "title": "Setors",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "建立一筆新的 Setor",
+        "createOrEditLabel": "建立或編輯 Setor",
+        "notFound": "No Setors found"
+      },
+      "created": "新的 Setor 建立成功，識別碼為 {{ param }}",
+      "updated": "識別碼為 {{ param }} 的 Setor 更新成功",
+      "deleted": "識別碼為 {{ param }} 的 Setor 刪除成功",
+      "delete": {
+        "question": "您確定要刪除 Setor {{ id }} 嗎?"
+      },
+      "detail": {
+        "title": "Setor"
+      },
+      "id": "ID",
+      "nome": "Nome",
+      "sigla": "Sigla",
+      "createdAt": "Created At",
+      "updatedAt": "Updated At",
+      "deletedAt": "Deleted At"
+    }
+  }
+}

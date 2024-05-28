@@ -1,0 +1,31 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "usuario": {
+      "home": {
+        "title": "Usuarios",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Usuario",
+        "createOrEditLabel": "Créer ou éditer un Usuario",
+        "notFound": "Aucun Usuario trouvé"
+      },
+      "created": "Un nouveau Usuario a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Usuario avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Usuario avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Usuario {{ id }} ?"
+      },
+      "detail": {
+        "title": "Usuario"
+      },
+      "id": "ID",
+      "nome": "Nome",
+      "login": "Login",
+      "email": "Email",
+      "createdAt": "Created At",
+      "updatedAt": "Updated At",
+      "deletedAt": "Deleted At",
+      "perfil": "Perfil",
+      "setor": "Setor"
+    }
+  }
+}

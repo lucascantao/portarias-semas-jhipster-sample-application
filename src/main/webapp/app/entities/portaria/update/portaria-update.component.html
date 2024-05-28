@@ -1,0 +1,198 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-portaria-heading"
+        data-cy="PortariaCreateUpdateHeading"
+        jhiTranslate="jhipsterSampleApplicationApp.portaria.home.createOrEditLabel"
+      >
+        Criar ou editar Portaria
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" for="field_id" jhiTranslate="jhipsterSampleApplicationApp.portaria.id">ID</label>
+            <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" for="field_numero" jhiTranslate="jhipsterSampleApplicationApp.portaria.numero">Numero</label>
+          <input type="number" class="form-control" name="numero" id="field_numero" data-cy="numero" formControlName="numero" />
+          @if (editForm.get('numero')!.invalid && (editForm.get('numero')!.dirty || editForm.get('numero')!.touched)) {
+            <div>
+              @if (editForm.get('numero')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">O campo é obrigatório.</small>
+              }
+              <small
+                class="form-text text-danger"
+                [hidden]="!editForm.get('numero')?.errors?.number"
+                jhiTranslate="entity.validation.number"
+                >Este campo é do tipo numérico.</small
+              >
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_data" jhiTranslate="jhipsterSampleApplicationApp.portaria.data">Data</label>
+          <div class="input-group">
+            <input
+              id="field_data"
+              data-cy="data"
+              type="text"
+              class="form-control"
+              name="data"
+              ngbDatepicker
+              #dataDp="ngbDatepicker"
+              formControlName="data"
+            />
+            <button type="button" class="btn btn-secondary" (click)="dataDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_createdAt" jhiTranslate="jhipsterSampleApplicationApp.portaria.createdAt">Created At</label>
+          <div class="d-flex">
+            <input
+              id="field_createdAt"
+              data-cy="createdAt"
+              type="datetime-local"
+              class="form-control"
+              name="createdAt"
+              formControlName="createdAt"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_updatedAt" jhiTranslate="jhipsterSampleApplicationApp.portaria.updatedAt">Updated At</label>
+          <div class="d-flex">
+            <input
+              id="field_updatedAt"
+              data-cy="updatedAt"
+              type="datetime-local"
+              class="form-control"
+              name="updatedAt"
+              formControlName="updatedAt"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_deletedAt" jhiTranslate="jhipsterSampleApplicationApp.portaria.deletedAt">Deleted At</label>
+          <div class="d-flex">
+            <input
+              id="field_deletedAt"
+              data-cy="deletedAt"
+              type="datetime-local"
+              class="form-control"
+              name="deletedAt"
+              formControlName="deletedAt"
+              placeholder="YYYY-MM-DD HH:mm"
+            />
+          </div>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_assunto" jhiTranslate="jhipsterSampleApplicationApp.portaria.assunto">Assunto</label>
+          <select
+            class="form-control"
+            id="field_assunto"
+            data-cy="assunto"
+            name="assunto"
+            formControlName="assunto"
+            [compareWith]="compareAssunto"
+          >
+            <option [ngValue]="null"></option>
+            @for (assuntoOption of assuntosSharedCollection; track $index) {
+              <option [ngValue]="assuntoOption">{{ assuntoOption.nome }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_setor" jhiTranslate="jhipsterSampleApplicationApp.portaria.setor">Setor</label>
+          <select class="form-control" id="field_setor" data-cy="setor" name="setor" formControlName="setor" [compareWith]="compareSetor">
+            <option [ngValue]="null"></option>
+            @for (setorOption of setorsSharedCollection; track $index) {
+              <option [ngValue]="setorOption">{{ setorOption.nome }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_usuario" jhiTranslate="jhipsterSampleApplicationApp.portaria.usuario">Usuario</label>
+          <select
+            class="form-control"
+            id="field_usuario"
+            data-cy="usuario"
+            name="usuario"
+            formControlName="usuario"
+            [compareWith]="compareUsuario"
+          >
+            <option [ngValue]="null"></option>
+            @for (usuarioOption of usuariosSharedCollection; track $index) {
+              <option [ngValue]="usuarioOption">{{ usuarioOption.nome }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_updatedBy" jhiTranslate="jhipsterSampleApplicationApp.portaria.updatedBy">Updated By</label>
+          <select
+            class="form-control"
+            id="field_updatedBy"
+            data-cy="updatedBy"
+            name="updatedBy"
+            formControlName="updatedBy"
+            [compareWith]="compareUsuario"
+          >
+            <option [ngValue]="null"></option>
+            @for (usuarioOption of usuariosSharedCollection; track $index) {
+              <option [ngValue]="usuarioOption">{{ usuarioOption.nome }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label class="form-label" for="field_deletedBy" jhiTranslate="jhipsterSampleApplicationApp.portaria.deletedBy">Deleted By</label>
+          <select
+            class="form-control"
+            id="field_deletedBy"
+            data-cy="deletedBy"
+            name="deletedBy"
+            formControlName="deletedBy"
+            [compareWith]="compareUsuario"
+          >
+            <option [ngValue]="null"></option>
+            @for (usuarioOption of usuariosSharedCollection; track $index) {
+              <option [ngValue]="usuarioOption">{{ usuarioOption.nome }}</option>
+            }
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancelar</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Salvar</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

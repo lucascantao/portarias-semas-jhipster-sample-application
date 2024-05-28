@@ -1,0 +1,52 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    @if (topico()) {
+      <div>
+        <h2 data-cy="topicoDetailsHeading"><span jhiTranslate="jhipsterSampleApplicationApp.topico.detail.title">Topico</span></h2>
+
+        <hr />
+
+        <jhi-alert-error></jhi-alert-error>
+
+        <jhi-alert></jhi-alert>
+
+        <dl class="row-md jh-entity-details">
+          <dt><span jhiTranslate="jhipsterSampleApplicationApp.topico.id">Id</span></dt>
+          <dd>
+            <span>{{ topico()!.id }}</span>
+          </dd>
+          <dt><span jhiTranslate="jhipsterSampleApplicationApp.topico.titulo">Titulo</span></dt>
+          <dd>
+            <span>{{ topico()!.titulo }}</span>
+          </dd>
+          <dt><span jhiTranslate="jhipsterSampleApplicationApp.topico.ajuda">Ajuda</span></dt>
+          <dd>
+            @for (ajuda of topico()!.ajudas; track $index; let last = $last) {
+              <span>
+                <a [routerLink]="['/ajuda', ajuda.id, 'view']">{{ ajuda?.titulo }}</a
+                >{{ last ? '' : ', ' }}
+              </span>
+            }
+          </dd>
+          <dt><span jhiTranslate="jhipsterSampleApplicationApp.topico.topico">Topico</span></dt>
+          <dd>
+            @for (topico of topico()!.topicos; track $index; let last = $last) {
+              <span>
+                <a [routerLink]="['/ajuda', topico.id, 'view']">{{ topico?.titulo }}</a
+                >{{ last ? '' : ', ' }}
+              </span>
+            }
+          </dd>
+        </dl>
+
+        <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+          <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Voltar</span>
+        </button>
+
+        <button type="button" [routerLink]="['/topico', topico()!.id, 'edit']" class="btn btn-primary">
+          <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Editar</span>
+        </button>
+      </div>
+    }
+  </div>
+</div>

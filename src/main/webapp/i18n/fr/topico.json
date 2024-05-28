@@ -1,0 +1,26 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "topico": {
+      "home": {
+        "title": "Topicos",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Topico",
+        "createOrEditLabel": "Créer ou éditer un Topico",
+        "notFound": "Aucun Topico trouvé"
+      },
+      "created": "Un nouveau Topico a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Topico avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Topico avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Topico {{ id }} ?"
+      },
+      "detail": {
+        "title": "Topico"
+      },
+      "id": "Id",
+      "titulo": "Titulo",
+      "ajuda": "Ajuda",
+      "topico": "Topico"
+    }
+  }
+}

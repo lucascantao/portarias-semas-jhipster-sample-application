@@ -1,0 +1,28 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "perfil": {
+      "home": {
+        "title": "Perfils",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "建立一筆新的 Perfil",
+        "createOrEditLabel": "建立或編輯 Perfil",
+        "notFound": "No Perfils found"
+      },
+      "created": "新的 Perfil 建立成功，識別碼為 {{ param }}",
+      "updated": "識別碼為 {{ param }} 的 Perfil 更新成功",
+      "deleted": "識別碼為 {{ param }} 的 Perfil 刪除成功",
+      "delete": {
+        "question": "您確定要刪除 Perfil {{ id }} 嗎?"
+      },
+      "detail": {
+        "title": "Perfil"
+      },
+      "id": "ID",
+      "nome": "Nome",
+      "descricao": "Descricao",
+      "createdAt": "Created At",
+      "updatedAt": "Updated At",
+      "deletedAt": "Deleted At"
+    }
+  }
+}
