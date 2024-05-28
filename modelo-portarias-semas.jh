@@ -15,7 +15,7 @@ entity Ajuda(ajudas) {
 
 relationship ManyToMany {
 	Topico{ajuda(titulo)} to Ajuda{topico(titulo)}
-    Ajuda{ajuda(titulo)} to Topico{topico(titulo)}
+    Topico{assunto(nome)} to Assunto{topico(titulo)}
 }
 
 entity Portaria {
