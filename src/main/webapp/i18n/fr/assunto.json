@@ -1,0 +1,28 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "assunto": {
+      "home": {
+        "title": "Assuntos",
+        "refreshListLabel": "Actualiser la liste",
+        "createLabel": "Créer un nouveau Assunto",
+        "createOrEditLabel": "Créer ou éditer un Assunto",
+        "notFound": "Aucun Assunto trouvé"
+      },
+      "created": "Un nouveau Assunto a été créé avec l'identifiant {{ param }}",
+      "updated": "Le Assunto avec l'identifiant {{ param }} a été mis à jour",
+      "deleted": "Le Assunto avec l'identifiant {{ param }} a été supprimé",
+      "delete": {
+        "question": "Êtes-vous certain de vouloir supprimer le Assunto {{ id }} ?"
+      },
+      "detail": {
+        "title": "Assunto"
+      },
+      "id": "ID",
+      "nome": "Nome",
+      "descricao": "Descricao",
+      "createdAt": "Created At",
+      "updatedAt": "Updated At",
+      "deletedAt": "Deleted At"
+    }
+  }
+}

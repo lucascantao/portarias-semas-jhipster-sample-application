@@ -1,0 +1,28 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "perfil": {
+      "home": {
+        "title": "Perfils",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Perfil",
+        "createOrEditLabel": "Create or edit a Perfil",
+        "notFound": "No Perfils found"
+      },
+      "created": "A new Perfil is created with identifier {{ param }}",
+      "updated": "A Perfil is updated with identifier {{ param }}",
+      "deleted": "A Perfil is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Perfil {{ id }}?"
+      },
+      "detail": {
+        "title": "Perfil"
+      },
+      "id": "ID",
+      "nome": "Nome",
+      "descricao": "Descricao",
+      "createdAt": "Created At",
+      "updatedAt": "Updated At",
+      "deletedAt": "Deleted At"
+    }
+  }
+}

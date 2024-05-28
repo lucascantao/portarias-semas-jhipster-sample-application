@@ -1,0 +1,114 @@
+<div>
+  <h2 id="page-heading" data-cy="AjudaHeading">
+    <span jhiTranslate="jhipsterSampleApplicationApp.ajuda.home.title">Ajudas</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="load()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="jhipsterSampleApplicationApp.ajuda.home.refreshListLabel">Atualizar lista</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-ajuda"
+        [routerLink]="['/ajuda/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="jhipsterSampleApplicationApp.ajuda.home.createLabel">Criar novo Ajuda</span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  @if (ajudas?.length === 0) {
+    <div class="alert alert-warning" id="no-result">
+      <span jhiTranslate="jhipsterSampleApplicationApp.ajuda.home.notFound">Nenhum Ajuda encontrado</span>
+    </div>
+  }
+
+  @if (ajudas && ajudas.length > 0) {
+    <div class="table-responsive table-entities" id="entities">
+      <table class="table table-striped" aria-describedby="page-heading">
+        <thead>
+          <tr jhiSort [sortState]="sortState" (sortChange)="navigateToWithComponentValues($event)">
+            <th scope="col" jhiSortBy="id">
+              <div class="d-flex">
+                <span jhiTranslate="jhipsterSampleApplicationApp.ajuda.id">Id</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="titulo">
+              <div class="d-flex">
+                <span jhiTranslate="jhipsterSampleApplicationApp.ajuda.titulo">Titulo</span>
+
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="ajuda.titulo">
+              <div class="d-flex">
+                <span jhiTranslate="jhipsterSampleApplicationApp.ajuda.ajuda">Ajuda</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col" jhiSortBy="topico.titulo">
+              <div class="d-flex">
+                <span jhiTranslate="jhipsterSampleApplicationApp.ajuda.topico">Topico</span>
+                <fa-icon class="p-1" icon="sort"></fa-icon>
+              </div>
+            </th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+          @for (ajuda of ajudas; track trackId) {
+            <tr data-cy="entityTable">
+              <td>
+                <a [routerLink]="['/ajuda', ajuda.id, 'view']">{{ ajuda.id }}</a>
+              </td>
+              <td>{{ ajuda.titulo }}</td>
+              <td>
+                @for (ajuda of ajuda.ajudas; track $index; let last = $last) {
+                  <span>
+                    <a class="form-control-static" [routerLink]="['/topico', ajuda.id, 'view']">{{ ajuda.titulo }}</a
+                    >{{ last ? '' : ', ' }}
+                  </span>
+                }
+              </td>
+              <td>
+                @for (topico of ajuda.topicos; track $index; let last = $last) {
+                  <span>
+                    <a class="form-control-static" [routerLink]="['/topico', topico.id, 'view']">{{ topico.titulo }}</a
+                    >{{ last ? '' : ', ' }}
+                  </span>
+                }
+              </td>
+              <td class="text-end">
+                <div class="btn-group">
+                  <a [routerLink]="['/ajuda', ajuda.id, 'view']" class="btn btn-info btn-sm" data-cy="entityDetailsButton">
+                    <fa-icon icon="eye"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.view">Visualizar</span>
+                  </a>
+
+                  <a [routerLink]="['/ajuda', ajuda.id, 'edit']" class="btn btn-primary btn-sm" data-cy="entityEditButton">
+                    <fa-icon icon="pencil-alt"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Editar</span>
+                  </a>
+
+                  <button type="submit" (click)="delete(ajuda)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                    <fa-icon icon="times"></fa-icon>
+                    <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Excluir</span>
+                  </button>
+                </div>
+              </td>
+            </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  }
+</div>

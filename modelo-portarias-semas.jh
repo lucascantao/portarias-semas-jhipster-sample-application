@@ -1,0 +1,91 @@
+
+// primeiraSegundaPalavra -> primeira_segunda_palavra
+
+
+
+entity Topico(topicos) {
+	@id id UUID
+    titulo String required
+}
+
+entity Ajuda(ajudas) {
+	@id id UUID
+    titulo String required
+}
+
+relationship ManyToMany {
+	Topico{ajuda(titulo)} to Ajuda{topico(titulo)}
+    Ajuda{ajuda(titulo)} to Topico{topico(titulo)}
+}
+
+entity Portaria {
+	numero Long required
+    data LocalDate    
+    
+    createdAt ZonedDateTime //hora minuto segundo
+    updatedAt ZonedDateTime
+    deletedAt ZonedDateTime
+    
+}
+
+entity Assunto {
+	nome String maxlength(1000) required
+    descricao TextBlob //texto sem tamanho definido
+    
+    createdAt ZonedDateTime
+    updatedAt ZonedDateTime
+    deletedAt ZonedDateTime
+}
+
+entity Setor {
+	nome String required
+    sigla String required
+    
+    createdAt ZonedDateTime
+    updatedAt ZonedDateTime
+    deletedAt ZonedDateTime
+}
+
+entity Usuario {
+	nome String
+    login String
+    email String
+    
+    createdAt ZonedDateTime
+    updatedAt ZonedDateTime
+    deletedAt ZonedDateTime
+}
+
+entity Perfil {
+	nome String maxlength(1000) required
+    descricao TextBlob //texto sem tamanho definido
+    
+    createdAt ZonedDateTime
+    updatedAt ZonedDateTime
+    deletedAt ZonedDateTime
+}
+
+//lado esquerdo é quem recebe a chave estrangeira
+relationship ManyToOne {
+	Portaria{assunto(nome)} to Assunto //assume que o nome da chave estrangeira é o nome do atributo definido com _id
+    Portaria{setor(nome)} to Setor
+    
+    Portaria{usuario(nome)} to Usuario
+    Portaria{updatedBy(nome)} to Usuario
+    Portaria{deletedBy(nome)} to Usuario
+}
+
+// bidirecional
+// nossa pportaria tem 3 relacionamentos pra mesma tabela
+// Outra abordagem
+// quem recebe a chave estrangeira fica do lado direito
+//relationship OneToMany {
+//	Usuario{criadas} to Portaria{usuario}
+//    Usuario{atualizadas} to Portaria{updatedBy}
+//    Usuario{deletadas} to Portaria{deletedBy}
+//}
+
+relationship ManyToOne {
+	Usuario{perfil(nome)} to Perfil
+    Usuario{setor(nome)} to Setor
+}

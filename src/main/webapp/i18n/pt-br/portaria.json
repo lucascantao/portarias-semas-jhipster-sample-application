@@ -1,0 +1,33 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "portaria": {
+      "home": {
+        "title": "Portarias",
+        "refreshListLabel": "Atualizar lista",
+        "createLabel": "Criar novo Portaria",
+        "createOrEditLabel": "Criar ou editar Portaria",
+        "notFound": "Nenhum Portaria encontrado"
+      },
+      "created": "Um novo Portaria foi criado com o identificador {{ param }}",
+      "updated": "Um Portaria foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Portaria foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Portaria {{ id }}?"
+      },
+      "detail": {
+        "title": "Portaria"
+      },
+      "id": "ID",
+      "numero": "Numero",
+      "data": "Data",
+      "createdAt": "Created At",
+      "updatedAt": "Updated At",
+      "deletedAt": "Deleted At",
+      "assunto": "Assunto",
+      "setor": "Setor",
+      "usuario": "Usuario",
+      "updatedBy": "Updated By",
+      "deletedBy": "Deleted By"
+    }
+  }
+}

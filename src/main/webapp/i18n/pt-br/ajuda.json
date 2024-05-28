@@ -1,0 +1,26 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "ajuda": {
+      "home": {
+        "title": "Ajudas",
+        "refreshListLabel": "Atualizar lista",
+        "createLabel": "Criar novo Ajuda",
+        "createOrEditLabel": "Criar ou editar Ajuda",
+        "notFound": "Nenhum Ajuda encontrado"
+      },
+      "created": "Um novo Ajuda foi criado com o identificador {{ param }}",
+      "updated": "Um Ajuda foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Ajuda foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Ajuda {{ id }}?"
+      },
+      "detail": {
+        "title": "Ajuda"
+      },
+      "id": "Id",
+      "titulo": "Titulo",
+      "ajuda": "Ajuda",
+      "topico": "Topico"
+    }
+  }
+}

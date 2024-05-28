@@ -1,0 +1,86 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-ajuda-heading"
+        data-cy="AjudaCreateUpdateHeading"
+        jhiTranslate="jhipsterSampleApplicationApp.ajuda.home.createOrEditLabel"
+      >
+        Criar ou editar Ajuda
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        @if (editForm.controls.id.value !== null) {
+          <div class="mb-3">
+            <label class="form-label" for="field_id" jhiTranslate="jhipsterSampleApplicationApp.ajuda.id">Id</label>
+            <input type="text" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+          </div>
+        }
+
+        <div class="mb-3">
+          <label class="form-label" for="field_titulo" jhiTranslate="jhipsterSampleApplicationApp.ajuda.titulo">Titulo</label>
+          <input type="text" class="form-control" name="titulo" id="field_titulo" data-cy="titulo" formControlName="titulo" />
+          @if (editForm.get('titulo')!.invalid && (editForm.get('titulo')!.dirty || editForm.get('titulo')!.touched)) {
+            <div>
+              @if (editForm.get('titulo')?.errors?.required) {
+                <small class="form-text text-danger" jhiTranslate="entity.validation.required">O campo é obrigatório.</small>
+              }
+            </div>
+          }
+        </div>
+
+        <div class="mb-3">
+          <label for="field_ajudas" jhiTranslate="jhipsterSampleApplicationApp.ajuda.ajuda">Ajuda</label>
+          <select
+            class="form-control"
+            id="field_ajudas"
+            data-cy="ajuda"
+            multiple
+            name="ajudas"
+            formControlName="ajudas"
+            [compareWith]="compareTopico"
+          >
+            @for (topicoOption of topicosSharedCollection; track $index) {
+              <option [ngValue]="topicoOption">{{ topicoOption.titulo }}</option>
+            }
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="field_topicos" jhiTranslate="jhipsterSampleApplicationApp.ajuda.topico">Topico</label>
+          <select
+            class="form-control"
+            id="field_topicos"
+            data-cy="topico"
+            multiple
+            name="topicos"
+            formControlName="topicos"
+            [compareWith]="compareTopico"
+          >
+            @for (topicoOption of topicosSharedCollection; track $index) {
+              <option [ngValue]="topicoOption">{{ topicoOption.titulo }}</option>
+            }
+          </select>
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancelar</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Salvar</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

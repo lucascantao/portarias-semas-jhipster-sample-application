@@ -1,0 +1,26 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "topico": {
+      "home": {
+        "title": "Topicos",
+        "refreshListLabel": "Atualizar lista",
+        "createLabel": "Criar novo Topico",
+        "createOrEditLabel": "Criar ou editar Topico",
+        "notFound": "Nenhum Topico encontrado"
+      },
+      "created": "Um novo Topico foi criado com o identificador {{ param }}",
+      "updated": "Um Topico foi atualizado com o identificador {{ param }}",
+      "deleted": "Um Topico foi excluído com o identificador {{ param }}",
+      "delete": {
+        "question": "Tem certeza de que deseja excluir Topico {{ id }}?"
+      },
+      "detail": {
+        "title": "Topico"
+      },
+      "id": "Id",
+      "titulo": "Titulo",
+      "ajuda": "Ajuda",
+      "topico": "Topico"
+    }
+  }
+}

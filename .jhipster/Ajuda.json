@@ -1,0 +1,41 @@
+{
+  "annotations": {
+    "changelogDate": "20240528145116"
+  },
+  "applications": "*",
+  "entityTableName": "ajudas",
+  "fields": [
+    {
+      "fieldName": "id",
+      "fieldType": "UUID",
+      "options": {
+        "id": true
+      }
+    },
+    {
+      "fieldName": "titulo",
+      "fieldType": "String",
+      "fieldValidateRules": ["required"]
+    }
+  ],
+  "name": "Ajuda",
+  "relationships": [
+    {
+      "otherEntityField": "titulo",
+      "otherEntityName": "topico",
+      "otherEntityRelationshipName": "topico",
+      "relationshipName": "ajuda",
+      "relationshipSide": "left",
+      "relationshipType": "many-to-many"
+    },
+    {
+      "otherEntityField": "titulo",
+      "otherEntityName": "topico",
+      "otherEntityRelationshipName": "ajuda",
+      "relationshipName": "topico",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-many"
+    }
+  ],
+  "searchEngine": "no"
+}

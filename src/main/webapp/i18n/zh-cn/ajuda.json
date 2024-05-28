@@ -1,0 +1,26 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "ajuda": {
+      "home": {
+        "title": "Ajudas",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "创建新 Ajuda",
+        "createOrEditLabel": "创建或编辑 Ajuda",
+        "notFound": "No Ajudas found"
+      },
+      "created": "Ajuda {{ param }} 创建成功",
+      "updated": "Ajuda {{ param }} 更新成功",
+      "deleted": "Ajuda {{ param }} 删除成功",
+      "delete": {
+        "question": "你确定要删除 Ajuda {{ id }} 吗？"
+      },
+      "detail": {
+        "title": "Ajuda"
+      },
+      "id": "Id",
+      "titulo": "Titulo",
+      "ajuda": "Ajuda",
+      "topico": "Topico"
+    }
+  }
+}

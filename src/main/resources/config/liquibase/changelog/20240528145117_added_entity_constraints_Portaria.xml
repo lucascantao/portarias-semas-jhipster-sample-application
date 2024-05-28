@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <!--
+        Added the constraints for entity Portaria.
+    -->
+    <changeSet id="20240528145117-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="assunto_id"
+                                 baseTableName="portaria"
+                                 constraintName="fk_portaria__assunto_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="assunto"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="setor_id"
+                                 baseTableName="portaria"
+                                 constraintName="fk_portaria__setor_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="setor"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="usuario_id"
+                                 baseTableName="portaria"
+                                 constraintName="fk_portaria__usuario_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="usuario"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="updated_by_id"
+                                 baseTableName="portaria"
+                                 constraintName="fk_portaria__updated_by_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="usuario"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="deleted_by_id"
+                                 baseTableName="portaria"
+                                 constraintName="fk_portaria__deleted_by_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="usuario"
+                                 />
+    </changeSet>
+</databaseChangeLog>

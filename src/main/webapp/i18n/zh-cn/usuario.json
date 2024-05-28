@@ -1,0 +1,31 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "usuario": {
+      "home": {
+        "title": "Usuarios",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "创建新 Usuario",
+        "createOrEditLabel": "创建或编辑 Usuario",
+        "notFound": "No Usuarios found"
+      },
+      "created": "Usuario {{ param }} 创建成功",
+      "updated": "Usuario {{ param }} 更新成功",
+      "deleted": "Usuario {{ param }} 删除成功",
+      "delete": {
+        "question": "你确定要删除 Usuario {{ id }} 吗？"
+      },
+      "detail": {
+        "title": "Usuario"
+      },
+      "id": "ID",
+      "nome": "Nome",
+      "login": "Login",
+      "email": "Email",
+      "createdAt": "Created At",
+      "updatedAt": "Updated At",
+      "deletedAt": "Deleted At",
+      "perfil": "Perfil",
+      "setor": "Setor"
+    }
+  }
+}

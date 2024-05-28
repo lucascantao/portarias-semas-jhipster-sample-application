@@ -1,0 +1,26 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "topico": {
+      "home": {
+        "title": "Topicos",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Topico",
+        "createOrEditLabel": "Create or edit a Topico",
+        "notFound": "No Topicos found"
+      },
+      "created": "A new Topico is created with identifier {{ param }}",
+      "updated": "A Topico is updated with identifier {{ param }}",
+      "deleted": "A Topico is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Topico {{ id }}?"
+      },
+      "detail": {
+        "title": "Topico"
+      },
+      "id": "Id",
+      "titulo": "Titulo",
+      "ajuda": "Ajuda",
+      "topico": "Topico"
+    }
+  }
+}

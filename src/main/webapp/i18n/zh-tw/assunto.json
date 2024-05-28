@@ -1,0 +1,28 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "assunto": {
+      "home": {
+        "title": "Assuntos",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "建立一筆新的 Assunto",
+        "createOrEditLabel": "建立或編輯 Assunto",
+        "notFound": "No Assuntos found"
+      },
+      "created": "新的 Assunto 建立成功，識別碼為 {{ param }}",
+      "updated": "識別碼為 {{ param }} 的 Assunto 更新成功",
+      "deleted": "識別碼為 {{ param }} 的 Assunto 刪除成功",
+      "delete": {
+        "question": "您確定要刪除 Assunto {{ id }} 嗎?"
+      },
+      "detail": {
+        "title": "Assunto"
+      },
+      "id": "ID",
+      "nome": "Nome",
+      "descricao": "Descricao",
+      "createdAt": "Created At",
+      "updatedAt": "Updated At",
+      "deletedAt": "Deleted At"
+    }
+  }
+}

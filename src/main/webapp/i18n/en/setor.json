@@ -1,0 +1,28 @@
+{
+  "jhipsterSampleApplicationApp": {
+    "setor": {
+      "home": {
+        "title": "Setors",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Setor",
+        "createOrEditLabel": "Create or edit a Setor",
+        "notFound": "No Setors found"
+      },
+      "created": "A new Setor is created with identifier {{ param }}",
+      "updated": "A Setor is updated with identifier {{ param }}",
+      "deleted": "A Setor is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Setor {{ id }}?"
+      },
+      "detail": {
+        "title": "Setor"
+      },
+      "id": "ID",
+      "nome": "Nome",
+      "sigla": "Sigla",
+      "createdAt": "Created At",
+      "updatedAt": "Updated At",
+      "deletedAt": "Deleted At"
+    }
+  }
+}
