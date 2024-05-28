@@ -22,7 +22,7 @@ describe('Topico Form Service', () => {
             id: expect.any(Object),
             titulo: expect.any(Object),
             ajudas: expect.any(Object),
-            topicos: expect.any(Object),
+            assuntos: expect.any(Object),
           }),
         );
       });
@@ -35,7 +35,7 @@ describe('Topico Form Service', () => {
             id: expect.any(Object),
             titulo: expect.any(Object),
             ajudas: expect.any(Object),
-            topicos: expect.any(Object),
+            assuntos: expect.any(Object),
           }),
         );
       });

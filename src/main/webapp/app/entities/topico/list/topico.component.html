@@ -55,9 +55,9 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
-            <th scope="col" jhiSortBy="topico.titulo">
+            <th scope="col" jhiSortBy="assunto.nome">
               <div class="d-flex">
-                <span jhiTranslate="jhipsterSampleApplicationApp.topico.topico">Topico</span>
+                <span jhiTranslate="jhipsterSampleApplicationApp.topico.assunto">Assunto</span>
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
@@ -80,9 +80,9 @@
                 }
               </td>
               <td>
-                @for (topico of topico.topicos; track $index; let last = $last) {
+                @for (assunto of topico.assuntos; track $index; let last = $last) {
                   <span>
-                    <a class="form-control-static" [routerLink]="['/ajuda', topico.id, 'view']">{{ topico.titulo }}</a
+                    <a class="form-control-static" [routerLink]="['/assunto', assunto.id, 'view']">{{ assunto.nome }}</a
                     >{{ last ? '' : ', ' }}
                   </span>
                 }

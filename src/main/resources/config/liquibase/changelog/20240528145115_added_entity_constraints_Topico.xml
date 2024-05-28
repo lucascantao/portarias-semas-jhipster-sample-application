@@ -23,5 +23,19 @@
                                  referencedColumnNames="id"
                                  referencedTableName="ajudas"
                                  />
+
+        <addForeignKeyConstraint baseColumnNames="topicos_id"
+                                 baseTableName="rel_topicos__assunto"
+                                 constraintName="fk_rel_topicos__assunto__topicos_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="topicos"
+                                 />
+
+        <addForeignKeyConstraint baseColumnNames="assunto_id"
+                                 baseTableName="rel_topicos__assunto"
+                                 constraintName="fk_rel_topicos__assunto__assunto_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="assunto"
+                                 />
     </changeSet>
 </databaseChangeLog>

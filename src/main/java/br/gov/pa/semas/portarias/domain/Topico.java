@@ -37,13 +37,18 @@ public class Topico implements Serializable {
         inverseJoinColumns = @JoinColumn(name = "ajuda_id")
     )
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @JsonIgnoreProperties(value = { "ajudas", "topicos" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "topicos" }, allowSetters = true)
     private Set<Ajuda> ajudas = new HashSet<>();
 
-    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "ajudas")
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+        name = "rel_topicos__assunto",
+        joinColumns = @JoinColumn(name = "topicos_id"),
+        inverseJoinColumns = @JoinColumn(name = "assunto_id")
+    )
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @JsonIgnoreProperties(value = { "ajudas", "topicos" }, allowSetters = true)
-    private Set<Ajuda> topicos = new HashSet<>();
+    @JsonIgnoreProperties(value = { "topicos" }, allowSetters = true)
+    private Set<Assunto> assuntos = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
@@ -96,34 +101,26 @@ public class Topico implements Serializable {
         return this;
     }
 
-    public Set<Ajuda> getTopicos() {
-        return this.topicos;
+    public Set<Assunto> getAssuntos() {
+        return this.assuntos;
     }
 
-    public void setTopicos(Set<Ajuda> ajudas) {
-        if (this.topicos != null) {
-            this.topicos.forEach(i -> i.removeAjuda(this));
-        }
-        if (ajudas != null) {
-            ajudas.forEach(i -> i.addAjuda(this));
-        }
-        this.topicos = ajudas;
+    public void setAssuntos(Set<Assunto> assuntos) {
+        this.assuntos = assuntos;
     }
 
-    public Topico topicos(Set<Ajuda> ajudas) {
-        this.setTopicos(ajudas);
+    public Topico assuntos(Set<Assunto> assuntos) {
+        this.setAssuntos(assuntos);
         return this;
     }
 
-    public Topico addTopico(Ajuda ajuda) {
-        this.topicos.add(ajuda);
-        ajuda.getAjudas().add(this);
+    public Topico addAssunto(Assunto assunto) {
+        this.assuntos.add(assunto);
         return this;
     }
 
-    public Topico removeTopico(Ajuda ajuda) {
-        this.topicos.remove(ajuda);
-        ajuda.getAjudas().remove(this);
+    public Topico removeAssunto(Assunto assunto) {
+        this.assuntos.remove(assunto);
         return this;
     }
 

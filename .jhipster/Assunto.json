@@ -29,6 +29,15 @@
     }
   ],
   "name": "Assunto",
-  "relationships": [],
+  "relationships": [
+    {
+      "otherEntityField": "titulo",
+      "otherEntityName": "topico",
+      "otherEntityRelationshipName": "assunto",
+      "relationshipName": "topico",
+      "relationshipSide": "right",
+      "relationshipType": "many-to-many"
+    }
+  ],
   "searchEngine": "no"
 }

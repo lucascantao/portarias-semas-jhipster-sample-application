@@ -28,11 +28,11 @@
               </span>
             }
           </dd>
-          <dt><span jhiTranslate="jhipsterSampleApplicationApp.topico.topico">Topico</span></dt>
+          <dt><span jhiTranslate="jhipsterSampleApplicationApp.topico.assunto">Assunto</span></dt>
           <dd>
-            @for (topico of topico()!.topicos; track $index; let last = $last) {
+            @for (assunto of topico()!.assuntos; track $index; let last = $last) {
               <span>
-                <a [routerLink]="['/ajuda', topico.id, 'view']">{{ topico?.titulo }}</a
+                <a [routerLink]="['/assunto', assunto.id, 'view']">{{ assunto?.nome }}</a
                 >{{ last ? '' : ', ' }}
               </span>
             }

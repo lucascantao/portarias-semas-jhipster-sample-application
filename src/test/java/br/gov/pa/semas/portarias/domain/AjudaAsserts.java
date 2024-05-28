@@ -59,7 +59,6 @@ public class AjudaAsserts {
     public static void assertAjudaUpdatableRelationshipsEquals(Ajuda expected, Ajuda actual) {
         assertThat(expected)
             .as("Verify Ajuda relationships")
-            .satisfies(e -> assertThat(e.getAjudas()).as("check ajudas").isEqualTo(actual.getAjudas()))
             .satisfies(e -> assertThat(e.getTopicos()).as("check topicos").isEqualTo(actual.getTopicos()));
     }
 }

@@ -61,6 +61,8 @@ public class CacheConfiguration {
             createCache(cm, br.gov.pa.semas.portarias.domain.Setor.class.getName());
             createCache(cm, br.gov.pa.semas.portarias.domain.Usuario.class.getName());
             createCache(cm, br.gov.pa.semas.portarias.domain.Perfil.class.getName());
+            createCache(cm, br.gov.pa.semas.portarias.domain.Topico.class.getName() + ".assuntos");
+            createCache(cm, br.gov.pa.semas.portarias.domain.Assunto.class.getName() + ".topicos");
             // jhipster-needle-ehcache-add-entry
         };
     }

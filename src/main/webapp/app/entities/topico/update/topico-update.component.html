@@ -49,18 +49,18 @@
         </div>
 
         <div class="mb-3">
-          <label for="field_topicos" jhiTranslate="jhipsterSampleApplicationApp.topico.topico">Topico</label>
+          <label for="field_assuntos" jhiTranslate="jhipsterSampleApplicationApp.topico.assunto">Assunto</label>
           <select
             class="form-control"
-            id="field_topicos"
-            data-cy="topico"
+            id="field_assuntos"
+            data-cy="assunto"
             multiple
-            name="topicos"
-            formControlName="topicos"
-            [compareWith]="compareAjuda"
+            name="assuntos"
+            formControlName="assuntos"
+            [compareWith]="compareAssunto"
           >
-            @for (ajudaOption of ajudasSharedCollection; track $index) {
-              <option [ngValue]="ajudaOption">{{ ajudaOption.titulo }}</option>
+            @for (assuntoOption of assuntosSharedCollection; track $index) {
+              <option [ngValue]="assuntoOption">{{ assuntoOption.nome }}</option>
             }
           </select>
         </div>

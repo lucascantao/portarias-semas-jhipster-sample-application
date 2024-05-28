@@ -1,6 +1,7 @@
 package br.gov.pa.semas.portarias.domain;
 
 import static br.gov.pa.semas.portarias.domain.AjudaTestSamples.*;
+import static br.gov.pa.semas.portarias.domain.AssuntoTestSamples.*;
 import static br.gov.pa.semas.portarias.domain.TopicoTestSamples.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -44,24 +45,20 @@ class TopicoTest {
     }
 
     @Test
-    void topicoTest() throws Exception {
+    void assuntoTest() throws Exception {
         Topico topico = getTopicoRandomSampleGenerator();
-        Ajuda ajudaBack = getAjudaRandomSampleGenerator();
+        Assunto assuntoBack = getAssuntoRandomSampleGenerator();
 
-        topico.addTopico(ajudaBack);
-        assertThat(topico.getTopicos()).containsOnly(ajudaBack);
-        assertThat(ajudaBack.getAjudas()).containsOnly(topico);
+        topico.addAssunto(assuntoBack);
+        assertThat(topico.getAssuntos()).containsOnly(assuntoBack);
 
-        topico.removeTopico(ajudaBack);
-        assertThat(topico.getTopicos()).doesNotContain(ajudaBack);
-        assertThat(ajudaBack.getAjudas()).doesNotContain(topico);
+        topico.removeAssunto(assuntoBack);
+        assertThat(topico.getAssuntos()).doesNotContain(assuntoBack);
 
-        topico.topicos(new HashSet<>(Set.of(ajudaBack)));
-        assertThat(topico.getTopicos()).containsOnly(ajudaBack);
-        assertThat(ajudaBack.getAjudas()).containsOnly(topico);
+        topico.assuntos(new HashSet<>(Set.of(assuntoBack)));
+        assertThat(topico.getAssuntos()).containsOnly(assuntoBack);
 
-        topico.setTopicos(new HashSet<>());
-        assertThat(topico.getTopicos()).doesNotContain(ajudaBack);
-        assertThat(ajudaBack.getAjudas()).doesNotContain(topico);
+        topico.setAssuntos(new HashSet<>());
+        assertThat(topico.getAssuntos()).doesNotContain(assuntoBack);
     }
 }

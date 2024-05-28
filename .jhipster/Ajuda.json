@@ -23,14 +23,6 @@
     {
       "otherEntityField": "titulo",
       "otherEntityName": "topico",
-      "otherEntityRelationshipName": "topico",
-      "relationshipName": "ajuda",
-      "relationshipSide": "left",
-      "relationshipType": "many-to-many"
-    },
-    {
-      "otherEntityField": "titulo",
-      "otherEntityName": "topico",
       "otherEntityRelationshipName": "ajuda",
       "relationshipName": "topico",
       "relationshipSide": "right",

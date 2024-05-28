@@ -9,8 +9,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { IAjuda } from 'app/entities/ajuda/ajuda.model';
 import { AjudaService } from 'app/entities/ajuda/service/ajuda.service';
-import { ITopico } from '../topico.model';
+import { IAssunto } from 'app/entities/assunto/assunto.model';
+import { AssuntoService } from 'app/entities/assunto/service/assunto.service';
 import { TopicoService } from '../service/topico.service';
+import { ITopico } from '../topico.model';
 import { TopicoFormService, TopicoFormGroup } from './topico-form.service';
 
 @Component({
@@ -24,16 +26,20 @@ export class TopicoUpdateComponent implements OnInit {
   topico: ITopico | null = null;
 
   ajudasSharedCollection: IAjuda[] = [];
+  assuntosSharedCollection: IAssunto[] = [];
 
   protected topicoService = inject(TopicoService);
   protected topicoFormService = inject(TopicoFormService);
   protected ajudaService = inject(AjudaService);
+  protected assuntoService = inject(AssuntoService);
   protected activatedRoute = inject(ActivatedRoute);
 
   // eslint-disable-next-line @typescript-eslint/member-ordering
   editForm: TopicoFormGroup = this.topicoFormService.createTopicoFormGroup();
 
   compareAjuda = (o1: IAjuda | null, o2: IAjuda | null): boolean => this.ajudaService.compareAjuda(o1, o2);
+
+  compareAssunto = (o1: IAssunto | null, o2: IAssunto | null): boolean => this.assuntoService.compareAssunto(o1, o2);
 
   ngOnInit(): void {
     this.activatedRoute.data.subscribe(({ topico }) => {
@@ -86,7 +92,10 @@ export class TopicoUpdateComponent implements OnInit {
     this.ajudasSharedCollection = this.ajudaService.addAjudaToCollectionIfMissing<IAjuda>(
       this.ajudasSharedCollection,
       ...(topico.ajudas ?? []),
-      ...(topico.topicos ?? []),
+    );
+    this.assuntosSharedCollection = this.assuntoService.addAssuntoToCollectionIfMissing<IAssunto>(
+      this.assuntosSharedCollection,
+      ...(topico.assuntos ?? []),
     );
   }
 
@@ -94,11 +103,17 @@ export class TopicoUpdateComponent implements OnInit {
     this.ajudaService
       .query()
       .pipe(map((res: HttpResponse<IAjuda[]>) => res.body ?? []))
+      .pipe(map((ajudas: IAjuda[]) => this.ajudaService.addAjudaToCollectionIfMissing<IAjuda>(ajudas, ...(this.topico?.ajudas ?? []))))
+      .subscribe((ajudas: IAjuda[]) => (this.ajudasSharedCollection = ajudas));
+
+    this.assuntoService
+      .query()
+      .pipe(map((res: HttpResponse<IAssunto[]>) => res.body ?? []))
       .pipe(
-        map((ajudas: IAjuda[]) =>
-          this.ajudaService.addAjudaToCollectionIfMissing<IAjuda>(ajudas, ...(this.topico?.ajudas ?? []), ...(this.topico?.topicos ?? [])),
+        map((assuntos: IAssunto[]) =>
+          this.assuntoService.addAssuntoToCollectionIfMissing<IAssunto>(assuntos, ...(this.topico?.assuntos ?? [])),
         ),
       )
-      .subscribe((ajudas: IAjuda[]) => (this.ajudasSharedCollection = ajudas));
+      .subscribe((assuntos: IAssunto[]) => (this.assuntosSharedCollection = assuntos));
   }
 }

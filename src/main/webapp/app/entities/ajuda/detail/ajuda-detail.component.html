@@ -19,15 +19,6 @@
           <dd>
             <span>{{ ajuda()!.titulo }}</span>
           </dd>
-          <dt><span jhiTranslate="jhipsterSampleApplicationApp.ajuda.ajuda">Ajuda</span></dt>
-          <dd>
-            @for (ajuda of ajuda()!.ajudas; track $index; let last = $last) {
-              <span>
-                <a [routerLink]="['/topico', ajuda.id, 'view']">{{ ajuda?.titulo }}</a
-                >{{ last ? '' : ', ' }}
-              </span>
-            }
-          </dd>
           <dt><span jhiTranslate="jhipsterSampleApplicationApp.ajuda.topico">Topico</span></dt>
           <dd>
             @for (topico of ajuda()!.topicos; track $index; let last = $last) {

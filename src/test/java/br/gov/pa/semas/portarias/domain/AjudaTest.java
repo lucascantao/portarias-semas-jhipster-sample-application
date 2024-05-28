@@ -26,24 +26,6 @@ class AjudaTest {
     }
 
     @Test
-    void ajudaTest() throws Exception {
-        Ajuda ajuda = getAjudaRandomSampleGenerator();
-        Topico topicoBack = getTopicoRandomSampleGenerator();
-
-        ajuda.addAjuda(topicoBack);
-        assertThat(ajuda.getAjudas()).containsOnly(topicoBack);
-
-        ajuda.removeAjuda(topicoBack);
-        assertThat(ajuda.getAjudas()).doesNotContain(topicoBack);
-
-        ajuda.ajudas(new HashSet<>(Set.of(topicoBack)));
-        assertThat(ajuda.getAjudas()).containsOnly(topicoBack);
-
-        ajuda.setAjudas(new HashSet<>());
-        assertThat(ajuda.getAjudas()).doesNotContain(topicoBack);
-    }
-
-    @Test
     void topicoTest() throws Exception {
         Ajuda ajuda = getAjudaRandomSampleGenerator();
         Topico topicoBack = getTopicoRandomSampleGenerator();

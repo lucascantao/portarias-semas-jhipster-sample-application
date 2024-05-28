@@ -25,6 +25,7 @@ describe('Assunto Form Service', () => {
             createdAt: expect.any(Object),
             updatedAt: expect.any(Object),
             deletedAt: expect.any(Object),
+            topicos: expect.any(Object),
           }),
         );
       });
@@ -40,6 +41,7 @@ describe('Assunto Form Service', () => {
             createdAt: expect.any(Object),
             updatedAt: expect.any(Object),
             deletedAt: expect.any(Object),
+            topicos: expect.any(Object),
           }),
         );
       });

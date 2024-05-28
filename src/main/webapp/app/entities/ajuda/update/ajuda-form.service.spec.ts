@@ -21,7 +21,6 @@ describe('Ajuda Form Service', () => {
           expect.objectContaining({
             id: expect.any(Object),
             titulo: expect.any(Object),
-            ajudas: expect.any(Object),
             topicos: expect.any(Object),
           }),
         );
@@ -34,7 +33,6 @@ describe('Ajuda Form Service', () => {
           expect.objectContaining({
             id: expect.any(Object),
             titulo: expect.any(Object),
-            ajudas: expect.any(Object),
             topicos: expect.any(Object),
           }),
         );

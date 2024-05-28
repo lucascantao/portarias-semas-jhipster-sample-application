@@ -49,12 +49,6 @@
                 <fa-icon class="p-1" icon="sort"></fa-icon>
               </div>
             </th>
-            <th scope="col" jhiSortBy="ajuda.titulo">
-              <div class="d-flex">
-                <span jhiTranslate="jhipsterSampleApplicationApp.ajuda.ajuda">Ajuda</span>
-                <fa-icon class="p-1" icon="sort"></fa-icon>
-              </div>
-            </th>
             <th scope="col" jhiSortBy="topico.titulo">
               <div class="d-flex">
                 <span jhiTranslate="jhipsterSampleApplicationApp.ajuda.topico">Topico</span>
@@ -71,14 +65,6 @@
                 <a [routerLink]="['/ajuda', ajuda.id, 'view']">{{ ajuda.id }}</a>
               </td>
               <td>{{ ajuda.titulo }}</td>
-              <td>
-                @for (ajuda of ajuda.ajudas; track $index; let last = $last) {
-                  <span>
-                    <a class="form-control-static" [routerLink]="['/topico', ajuda.id, 'view']">{{ ajuda.titulo }}</a
-                    >{{ last ? '' : ', ' }}
-                  </span>
-                }
-              </td>
               <td>
                 @for (topico of ajuda.topicos; track $index; let last = $last) {
                   <span>

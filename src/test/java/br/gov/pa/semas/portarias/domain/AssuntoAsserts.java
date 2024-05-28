@@ -79,5 +79,9 @@ public class AssuntoAsserts {
      * @param expected the expected entity
      * @param actual the actual entity
      */
-    public static void assertAssuntoUpdatableRelationshipsEquals(Assunto expected, Assunto actual) {}
+    public static void assertAssuntoUpdatableRelationshipsEquals(Assunto expected, Assunto actual) {
+        assertThat(expected)
+            .as("Verify Assunto relationships")
+            .satisfies(e -> assertThat(e.getTopicos()).as("check topicos").isEqualTo(actual.getTopicos()));
+    }
 }

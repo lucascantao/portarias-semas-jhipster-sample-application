@@ -14,13 +14,13 @@ type PartialWithRequiredKeyOf<T extends { id: unknown }> = Partial<Omit<T, 'id'>
  */
 type TopicoFormGroupInput = ITopico | PartialWithRequiredKeyOf<NewTopico>;
 
-type TopicoFormDefaults = Pick<NewTopico, 'id' | 'ajudas' | 'topicos'>;
+type TopicoFormDefaults = Pick<NewTopico, 'id' | 'ajudas' | 'assuntos'>;
 
 type TopicoFormGroupContent = {
   id: FormControl<ITopico['id'] | NewTopico['id']>;
   titulo: FormControl<ITopico['titulo']>;
   ajudas: FormControl<ITopico['ajudas']>;
-  topicos: FormControl<ITopico['topicos']>;
+  assuntos: FormControl<ITopico['assuntos']>;
 };
 
 export type TopicoFormGroup = FormGroup<TopicoFormGroupContent>;
@@ -44,7 +44,7 @@ export class TopicoFormService {
         validators: [Validators.required],
       }),
       ajudas: new FormControl(topicoRawValue.ajudas ?? []),
-      topicos: new FormControl(topicoRawValue.topicos ?? []),
+      assuntos: new FormControl(topicoRawValue.assuntos ?? []),
     });
   }
 
@@ -66,7 +66,7 @@ export class TopicoFormService {
     return {
       id: null,
       ajudas: [],
-      topicos: [],
+      assuntos: [],
     };
   }
 }

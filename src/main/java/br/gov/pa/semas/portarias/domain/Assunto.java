@@ -1,9 +1,12 @@
 package br.gov.pa.semas.portarias.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.*;
 import java.io.Serializable;
 import java.time.ZonedDateTime;
+import java.util.HashSet;
+import java.util.Set;
 import org.hibernate.annotations.Cache;
 import org.hibernate.annotations.CacheConcurrencyStrategy;
 
@@ -41,6 +44,11 @@ public class Assunto implements Serializable {
 
     @Column(name = "deleted_at")
     private ZonedDateTime deletedAt;
+
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "assuntos")
+    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
+    @JsonIgnoreProperties(value = { "ajudas", "assuntos" }, allowSetters = true)
+    private Set<Topico> topicos = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
 
@@ -120,6 +128,37 @@ public class Assunto implements Serializable {
 
     public void setDeletedAt(ZonedDateTime deletedAt) {
         this.deletedAt = deletedAt;
+    }
+
+    public Set<Topico> getTopicos() {
+        return this.topicos;
+    }
+
+    public void setTopicos(Set<Topico> topicos) {
+        if (this.topicos != null) {
+            this.topicos.forEach(i -> i.removeAssunto(this));
+        }
+        if (topicos != null) {
+            topicos.forEach(i -> i.addAssunto(this));
+        }
+        this.topicos = topicos;
+    }
+
+    public Assunto topicos(Set<Topico> topicos) {
+        this.setTopicos(topicos);
+        return this;
+    }
+
+    public Assunto addTopico(Topico topico) {
+        this.topicos.add(topico);
+        topico.getAssuntos().add(this);
+        return this;
+    }
+
+    public Assunto removeTopico(Topico topico) {
+        this.topicos.remove(topico);
+        topico.getAssuntos().remove(this);
+        return this;
     }
 
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here
