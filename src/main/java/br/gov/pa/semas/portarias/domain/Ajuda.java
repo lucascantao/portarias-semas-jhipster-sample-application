@@ -30,19 +30,9 @@ public class Ajuda implements Serializable {
     @Column(name = "titulo", nullable = false)
     private String titulo;
 
-    @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(
-        name = "rel_ajudas__ajuda",
-        joinColumns = @JoinColumn(name = "ajudas_id"),
-        inverseJoinColumns = @JoinColumn(name = "ajuda_id")
-    )
-    @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @JsonIgnoreProperties(value = { "ajudas", "topicos" }, allowSetters = true)
-    private Set<Topico> ajudas = new HashSet<>();
-
     @ManyToMany(fetch = FetchType.LAZY, mappedBy = "ajudas")
     @Cache(usage = CacheConcurrencyStrategy.READ_WRITE)
-    @JsonIgnoreProperties(value = { "ajudas", "topicos" }, allowSetters = true)
+    @JsonIgnoreProperties(value = { "ajudas", "assuntos" }, allowSetters = true)
     private Set<Topico> topicos = new HashSet<>();
 
     // jhipster-needle-entity-add-field - JHipster will add fields here
@@ -71,29 +61,6 @@ public class Ajuda implements Serializable {
 
     public void setTitulo(String titulo) {
         this.titulo = titulo;
-    }
-
-    public Set<Topico> getAjudas() {
-        return this.ajudas;
-    }
-
-    public void setAjudas(Set<Topico> topicos) {
-        this.ajudas = topicos;
-    }
-
-    public Ajuda ajudas(Set<Topico> topicos) {
-        this.setAjudas(topicos);
-        return this;
-    }
-
-    public Ajuda addAjuda(Topico topico) {
-        this.ajudas.add(topico);
-        return this;
-    }
-
-    public Ajuda removeAjuda(Topico topico) {
-        this.ajudas.remove(topico);
-        return this;
     }
 
     public Set<Topico> getTopicos() {

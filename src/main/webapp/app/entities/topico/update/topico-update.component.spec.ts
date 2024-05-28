@@ -7,8 +7,10 @@ import { of, Subject, from } from 'rxjs';
 
 import { IAjuda } from 'app/entities/ajuda/ajuda.model';
 import { AjudaService } from 'app/entities/ajuda/service/ajuda.service';
-import { TopicoService } from '../service/topico.service';
+import { IAssunto } from 'app/entities/assunto/assunto.model';
+import { AssuntoService } from 'app/entities/assunto/service/assunto.service';
 import { ITopico } from '../topico.model';
+import { TopicoService } from '../service/topico.service';
 import { TopicoFormService } from './topico-form.service';
 
 import { TopicoUpdateComponent } from './topico-update.component';
@@ -20,6 +22,7 @@ describe('Topico Management Update Component', () => {
   let topicoFormService: TopicoFormService;
   let topicoService: TopicoService;
   let ajudaService: AjudaService;
+  let assuntoService: AssuntoService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -42,6 +45,7 @@ describe('Topico Management Update Component', () => {
     topicoFormService = TestBed.inject(TopicoFormService);
     topicoService = TestBed.inject(TopicoService);
     ajudaService = TestBed.inject(AjudaService);
+    assuntoService = TestBed.inject(AssuntoService);
 
     comp = fixture.componentInstance;
   });
@@ -51,12 +55,10 @@ describe('Topico Management Update Component', () => {
       const topico: ITopico = { id: '1361f429-3817-4123-8ee3-fdf8943310b2' };
       const ajudas: IAjuda[] = [{ id: '20291dbe-0e71-4633-907e-be1d67aade58' }];
       topico.ajudas = ajudas;
-      const topicos: IAjuda[] = [{ id: '8e87190a-7942-4d00-b1a2-c5350a2f9e32' }];
-      topico.topicos = topicos;
 
-      const ajudaCollection: IAjuda[] = [{ id: '895a4c02-e32a-4686-953f-2fb040db1b22' }];
+      const ajudaCollection: IAjuda[] = [{ id: '8e87190a-7942-4d00-b1a2-c5350a2f9e32' }];
       jest.spyOn(ajudaService, 'query').mockReturnValue(of(new HttpResponse({ body: ajudaCollection })));
-      const additionalAjudas = [...ajudas, ...topicos];
+      const additionalAjudas = [...ajudas];
       const expectedCollection: IAjuda[] = [...additionalAjudas, ...ajudaCollection];
       jest.spyOn(ajudaService, 'addAjudaToCollectionIfMissing').mockReturnValue(expectedCollection);
 
@@ -71,18 +73,40 @@ describe('Topico Management Update Component', () => {
       expect(comp.ajudasSharedCollection).toEqual(expectedCollection);
     });
 
+    it('Should call Assunto query and add missing value', () => {
+      const topico: ITopico = { id: '1361f429-3817-4123-8ee3-fdf8943310b2' };
+      const assuntos: IAssunto[] = [{ id: 15369 }];
+      topico.assuntos = assuntos;
+
+      const assuntoCollection: IAssunto[] = [{ id: 9134 }];
+      jest.spyOn(assuntoService, 'query').mockReturnValue(of(new HttpResponse({ body: assuntoCollection })));
+      const additionalAssuntos = [...assuntos];
+      const expectedCollection: IAssunto[] = [...additionalAssuntos, ...assuntoCollection];
+      jest.spyOn(assuntoService, 'addAssuntoToCollectionIfMissing').mockReturnValue(expectedCollection);
+
+      activatedRoute.data = of({ topico });
+      comp.ngOnInit();
+
+      expect(assuntoService.query).toHaveBeenCalled();
+      expect(assuntoService.addAssuntoToCollectionIfMissing).toHaveBeenCalledWith(
+        assuntoCollection,
+        ...additionalAssuntos.map(expect.objectContaining),
+      );
+      expect(comp.assuntosSharedCollection).toEqual(expectedCollection);
+    });
+
     it('Should update editForm', () => {
       const topico: ITopico = { id: '1361f429-3817-4123-8ee3-fdf8943310b2' };
-      const ajuda: IAjuda = { id: 'c37aa348-018f-4b69-b4f8-a44875d2228c' };
+      const ajuda: IAjuda = { id: '895a4c02-e32a-4686-953f-2fb040db1b22' };
       topico.ajudas = [ajuda];
-      const topico: IAjuda = { id: 'a18b866e-b3ff-4d69-8671-3da553313758' };
-      topico.topicos = [topico];
+      const assunto: IAssunto = { id: 28357 };
+      topico.assuntos = [assunto];
 
       activatedRoute.data = of({ topico });
       comp.ngOnInit();
 
       expect(comp.ajudasSharedCollection).toContain(ajuda);
-      expect(comp.ajudasSharedCollection).toContain(topico);
+      expect(comp.assuntosSharedCollection).toContain(assunto);
       expect(comp.topico).toEqual(topico);
     });
   });
@@ -163,6 +187,16 @@ describe('Topico Management Update Component', () => {
         jest.spyOn(ajudaService, 'compareAjuda');
         comp.compareAjuda(entity, entity2);
         expect(ajudaService.compareAjuda).toHaveBeenCalledWith(entity, entity2);
+      });
+    });
+
+    describe('compareAssunto', () => {
+      it('Should forward to assuntoService', () => {
+        const entity = { id: 123 };
+        const entity2 = { id: 456 };
+        jest.spyOn(assuntoService, 'compareAssunto');
+        comp.compareAssunto(entity, entity2);
+        expect(assuntoService.compareAssunto).toHaveBeenCalledWith(entity, entity2);
       });
     });
   });

@@ -29,11 +29,11 @@
       "relationshipType": "many-to-many"
     },
     {
-      "otherEntityField": "titulo",
-      "otherEntityName": "ajuda",
-      "otherEntityRelationshipName": "ajuda",
-      "relationshipName": "topico",
-      "relationshipSide": "right",
+      "otherEntityField": "nome",
+      "otherEntityName": "assunto",
+      "otherEntityRelationshipName": "topico",
+      "relationshipName": "assunto",
+      "relationshipSide": "left",
       "relationshipType": "many-to-many"
     }
   ],

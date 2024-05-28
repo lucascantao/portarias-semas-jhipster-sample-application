@@ -14,12 +14,11 @@ type PartialWithRequiredKeyOf<T extends { id: unknown }> = Partial<Omit<T, 'id'>
  */
 type AjudaFormGroupInput = IAjuda | PartialWithRequiredKeyOf<NewAjuda>;
 
-type AjudaFormDefaults = Pick<NewAjuda, 'id' | 'ajudas' | 'topicos'>;
+type AjudaFormDefaults = Pick<NewAjuda, 'id' | 'topicos'>;
 
 type AjudaFormGroupContent = {
   id: FormControl<IAjuda['id'] | NewAjuda['id']>;
   titulo: FormControl<IAjuda['titulo']>;
-  ajudas: FormControl<IAjuda['ajudas']>;
   topicos: FormControl<IAjuda['topicos']>;
 };
 
@@ -43,7 +42,6 @@ export class AjudaFormService {
       titulo: new FormControl(ajudaRawValue.titulo, {
         validators: [Validators.required],
       }),
-      ajudas: new FormControl(ajudaRawValue.ajudas ?? []),
       topicos: new FormControl(ajudaRawValue.topicos ?? []),
     });
   }
@@ -65,7 +63,6 @@ export class AjudaFormService {
   private getFormDefaults(): AjudaFormDefaults {
     return {
       id: null,
-      ajudas: [],
       topicos: [],
     };
   }

@@ -32,23 +32,6 @@
         </div>
 
         <div class="mb-3">
-          <label for="field_ajudas" jhiTranslate="jhipsterSampleApplicationApp.ajuda.ajuda">Ajuda</label>
-          <select
-            class="form-control"
-            id="field_ajudas"
-            data-cy="ajuda"
-            multiple
-            name="ajudas"
-            formControlName="ajudas"
-            [compareWith]="compareTopico"
-          >
-            @for (topicoOption of topicosSharedCollection; track $index) {
-              <option [ngValue]="topicoOption">{{ topicoOption.titulo }}</option>
-            }
-          </select>
-        </div>
-
-        <div class="mb-3">
           <label for="field_topicos" jhiTranslate="jhipsterSampleApplicationApp.ajuda.topico">Topico</label>
           <select
             class="form-control"

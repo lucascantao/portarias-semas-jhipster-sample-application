@@ -85,7 +85,6 @@ export class AjudaUpdateComponent implements OnInit {
 
     this.topicosSharedCollection = this.topicoService.addTopicoToCollectionIfMissing<ITopico>(
       this.topicosSharedCollection,
-      ...(ajuda.ajudas ?? []),
       ...(ajuda.topicos ?? []),
     );
   }
@@ -95,13 +94,7 @@ export class AjudaUpdateComponent implements OnInit {
       .query()
       .pipe(map((res: HttpResponse<ITopico[]>) => res.body ?? []))
       .pipe(
-        map((topicos: ITopico[]) =>
-          this.topicoService.addTopicoToCollectionIfMissing<ITopico>(
-            topicos,
-            ...(this.ajuda?.ajudas ?? []),
-            ...(this.ajuda?.topicos ?? []),
-          ),
-        ),
+        map((topicos: ITopico[]) => this.topicoService.addTopicoToCollectionIfMissing<ITopico>(topicos, ...(this.ajuda?.topicos ?? []))),
       )
       .subscribe((topicos: ITopico[]) => (this.topicosSharedCollection = topicos));
   }

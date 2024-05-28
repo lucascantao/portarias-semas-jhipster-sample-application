@@ -3,29 +3,28 @@ import dayjs from 'dayjs/esm';
 import { IAssunto, NewAssunto } from './assunto.model';
 
 export const sampleWithRequiredData: IAssunto = {
-  id: 19251,
-  nome: 'haze analysis deceivingly',
+  id: 30322,
+  nome: 'new town',
 };
 
 export const sampleWithPartialData: IAssunto = {
-  id: 8520,
-  nome: 'death splurge',
-  descricao: '../fake-data/blob/hipster.txt',
-  createdAt: dayjs('2024-05-27T18:59'),
-  deletedAt: dayjs('2024-05-27T20:20'),
+  id: 9435,
+  nome: 'aha',
+  updatedAt: dayjs('2024-05-28T12:35'),
+  deletedAt: dayjs('2024-05-28T11:14'),
 };
 
 export const sampleWithFullData: IAssunto = {
-  id: 16617,
-  nome: 'beneath',
+  id: 4835,
+  nome: 'splurge',
   descricao: '../fake-data/blob/hipster.txt',
-  createdAt: dayjs('2024-05-27T16:56'),
-  updatedAt: dayjs('2024-05-27T20:02'),
-  deletedAt: dayjs('2024-05-27T16:02'),
+  createdAt: dayjs('2024-05-27T18:59'),
+  updatedAt: dayjs('2024-05-27T20:20'),
+  deletedAt: dayjs('2024-05-28T02:41'),
 };
 
 export const sampleWithNewData: NewAssunto = {
-  nome: 'qua aside',
+  nome: 'beneath',
   id: null,
 };
 

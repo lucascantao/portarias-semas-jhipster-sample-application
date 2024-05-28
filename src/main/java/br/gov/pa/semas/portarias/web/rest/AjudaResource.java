@@ -139,17 +139,12 @@ public class AjudaResource {
     /**
      * {@code GET  /ajudas} : get all the ajudas.
      *
-     * @param eagerload flag to eager load entities from relationships (This is applicable for many-to-many).
      * @return the {@link ResponseEntity} with status {@code 200 (OK)} and the list of ajudas in body.
      */
     @GetMapping("")
-    public List<Ajuda> getAllAjudas(@RequestParam(name = "eagerload", required = false, defaultValue = "true") boolean eagerload) {
+    public List<Ajuda> getAllAjudas() {
         log.debug("REST request to get all Ajudas");
-        if (eagerload) {
-            return ajudaRepository.findAllWithEagerRelationships();
-        } else {
-            return ajudaRepository.findAll();
-        }
+        return ajudaRepository.findAll();
     }
 
     /**
@@ -161,7 +156,7 @@ public class AjudaResource {
     @GetMapping("/{id}")
     public ResponseEntity<Ajuda> getAjuda(@PathVariable("id") UUID id) {
         log.debug("REST request to get Ajuda : {}", id);
-        Optional<Ajuda> ajuda = ajudaRepository.findOneWithEagerRelationships(id);
+        Optional<Ajuda> ajuda = ajudaRepository.findById(id);
         return ResponseUtil.wrapOrNotFound(ajuda);
     }
 

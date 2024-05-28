@@ -60,6 +60,6 @@ public class TopicoAsserts {
         assertThat(expected)
             .as("Verify Topico relationships")
             .satisfies(e -> assertThat(e.getAjudas()).as("check ajudas").isEqualTo(actual.getAjudas()))
-            .satisfies(e -> assertThat(e.getTopicos()).as("check topicos").isEqualTo(actual.getTopicos()));
+            .satisfies(e -> assertThat(e.getAssuntos()).as("check assuntos").isEqualTo(actual.getAssuntos()));
     }
 }

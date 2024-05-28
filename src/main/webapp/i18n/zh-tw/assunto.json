@@ -22,7 +22,8 @@
       "descricao": "Descricao",
       "createdAt": "Created At",
       "updatedAt": "Updated At",
-      "deletedAt": "Deleted At"
+      "deletedAt": "Deleted At",
+      "topico": "Topico"
     }
   }
 }

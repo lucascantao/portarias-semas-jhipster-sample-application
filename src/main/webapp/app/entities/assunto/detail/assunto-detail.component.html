@@ -35,6 +35,15 @@
           <dd>
             <span>{{ assunto()!.deletedAt | formatMediumDatetime }}</span>
           </dd>
+          <dt><span jhiTranslate="jhipsterSampleApplicationApp.assunto.topico">Topico</span></dt>
+          <dd>
+            @for (topico of assunto()!.topicos; track $index; let last = $last) {
+              <span>
+                <a [routerLink]="['/topico', topico.id, 'view']">{{ topico?.titulo }}</a
+                >{{ last ? '' : ', ' }}
+              </span>
+            }
+          </dd>
         </dl>
 
         <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">

@@ -29,7 +29,7 @@ type AssuntoFormRawValue = FormValueOf<IAssunto>;
 
 type NewAssuntoFormRawValue = FormValueOf<NewAssunto>;
 
-type AssuntoFormDefaults = Pick<NewAssunto, 'id' | 'createdAt' | 'updatedAt' | 'deletedAt'>;
+type AssuntoFormDefaults = Pick<NewAssunto, 'id' | 'createdAt' | 'updatedAt' | 'deletedAt' | 'topicos'>;
 
 type AssuntoFormGroupContent = {
   id: FormControl<AssuntoFormRawValue['id'] | NewAssunto['id']>;
@@ -38,6 +38,7 @@ type AssuntoFormGroupContent = {
   createdAt: FormControl<AssuntoFormRawValue['createdAt']>;
   updatedAt: FormControl<AssuntoFormRawValue['updatedAt']>;
   deletedAt: FormControl<AssuntoFormRawValue['deletedAt']>;
+  topicos: FormControl<AssuntoFormRawValue['topicos']>;
 };
 
 export type AssuntoFormGroup = FormGroup<AssuntoFormGroupContent>;
@@ -64,6 +65,7 @@ export class AssuntoFormService {
       createdAt: new FormControl(assuntoRawValue.createdAt),
       updatedAt: new FormControl(assuntoRawValue.updatedAt),
       deletedAt: new FormControl(assuntoRawValue.deletedAt),
+      topicos: new FormControl(assuntoRawValue.topicos ?? []),
     });
   }
 
@@ -89,6 +91,7 @@ export class AssuntoFormService {
       createdAt: currentTime,
       updatedAt: currentTime,
       deletedAt: currentTime,
+      topicos: [],
     };
   }
 
@@ -109,6 +112,7 @@ export class AssuntoFormService {
       createdAt: assunto.createdAt ? assunto.createdAt.format(DATE_TIME_FORMAT) : undefined,
       updatedAt: assunto.updatedAt ? assunto.updatedAt.format(DATE_TIME_FORMAT) : undefined,
       deletedAt: assunto.deletedAt ? assunto.deletedAt.format(DATE_TIME_FORMAT) : undefined,
+      topicos: assunto.topicos ?? [],
     };
   }
 }

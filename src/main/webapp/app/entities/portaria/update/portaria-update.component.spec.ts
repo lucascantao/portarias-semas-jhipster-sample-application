@@ -57,10 +57,10 @@ describe('Portaria Management Update Component', () => {
   describe('ngOnInit', () => {
     it('Should call Assunto query and add missing value', () => {
       const portaria: IPortaria = { id: 456 };
-      const assunto: IAssunto = { id: 15369 };
+      const assunto: IAssunto = { id: 19251 };
       portaria.assunto = assunto;
 
-      const assuntoCollection: IAssunto[] = [{ id: 9134 }];
+      const assuntoCollection: IAssunto[] = [{ id: 30066 }];
       jest.spyOn(assuntoService, 'query').mockReturnValue(of(new HttpResponse({ body: assuntoCollection })));
       const additionalAssuntos = [assunto];
       const expectedCollection: IAssunto[] = [...additionalAssuntos, ...assuntoCollection];
@@ -127,7 +127,7 @@ describe('Portaria Management Update Component', () => {
 
     it('Should update editForm', () => {
       const portaria: IPortaria = { id: 456 };
-      const assunto: IAssunto = { id: 28357 };
+      const assunto: IAssunto = { id: 341 };
       portaria.assunto = assunto;
       const setor: ISetor = { id: 21623 };
       portaria.setor = setor;

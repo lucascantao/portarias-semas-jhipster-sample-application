@@ -49,14 +49,12 @@ describe('Ajuda Management Update Component', () => {
   describe('ngOnInit', () => {
     it('Should call Topico query and add missing value', () => {
       const ajuda: IAjuda = { id: '1361f429-3817-4123-8ee3-fdf8943310b2' };
-      const ajudas: ITopico[] = [{ id: 'c512ab75-b9be-4bf1-b2a6-5d35ce576d0d' }];
-      ajuda.ajudas = ajudas;
-      const topicos: ITopico[] = [{ id: '5abb45d1-99b5-41b3-b27c-ddf4de242309' }];
+      const topicos: ITopico[] = [{ id: 'c512ab75-b9be-4bf1-b2a6-5d35ce576d0d' }];
       ajuda.topicos = topicos;
 
-      const topicoCollection: ITopico[] = [{ id: '27a08ad0-4ff4-41f2-a272-ab9650a05223' }];
+      const topicoCollection: ITopico[] = [{ id: '5abb45d1-99b5-41b3-b27c-ddf4de242309' }];
       jest.spyOn(topicoService, 'query').mockReturnValue(of(new HttpResponse({ body: topicoCollection })));
-      const additionalTopicos = [...ajudas, ...topicos];
+      const additionalTopicos = [...topicos];
       const expectedCollection: ITopico[] = [...additionalTopicos, ...topicoCollection];
       jest.spyOn(topicoService, 'addTopicoToCollectionIfMissing').mockReturnValue(expectedCollection);
 
@@ -73,15 +71,12 @@ describe('Ajuda Management Update Component', () => {
 
     it('Should update editForm', () => {
       const ajuda: IAjuda = { id: '1361f429-3817-4123-8ee3-fdf8943310b2' };
-      const ajuda: ITopico = { id: 'f5efd430-99f8-4bf6-bcd7-47a1fe81866e' };
-      ajuda.ajudas = [ajuda];
-      const topico: ITopico = { id: 'a948141e-81c8-4291-a898-9e4c7353fb28' };
+      const topico: ITopico = { id: '27a08ad0-4ff4-41f2-a272-ab9650a05223' };
       ajuda.topicos = [topico];
 
       activatedRoute.data = of({ ajuda });
       comp.ngOnInit();
 
-      expect(comp.topicosSharedCollection).toContain(ajuda);
       expect(comp.topicosSharedCollection).toContain(topico);
       expect(comp.ajuda).toEqual(ajuda);
     });

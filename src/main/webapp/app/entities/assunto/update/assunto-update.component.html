@@ -85,6 +85,23 @@
             />
           </div>
         </div>
+
+        <div class="mb-3">
+          <label for="field_topicos" jhiTranslate="jhipsterSampleApplicationApp.assunto.topico">Topico</label>
+          <select
+            class="form-control"
+            id="field_topicos"
+            data-cy="topico"
+            multiple
+            name="topicos"
+            formControlName="topicos"
+            [compareWith]="compareTopico"
+          >
+            @for (topicoOption of topicosSharedCollection; track $index) {
+              <option [ngValue]="topicoOption">{{ topicoOption.titulo }}</option>
+            }
+          </select>
+        </div>
       </div>
 
       <div>

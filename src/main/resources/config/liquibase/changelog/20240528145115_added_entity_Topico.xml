@@ -33,6 +33,17 @@
         </createTable>
 
         <addPrimaryKey columnNames="topicos_id, ajuda_id" tableName="rel_topicos__ajuda"/>
+
+        <createTable tableName="rel_topicos__assunto">
+            <column name="assunto_id" type="bigint">
+                <constraints nullable="false"/>
+            </column>
+            <column name="topicos_id" type="${uuidType}">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+
+        <addPrimaryKey columnNames="topicos_id, assunto_id" tableName="rel_topicos__assunto"/>
     </changeSet>
 
     <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here -->

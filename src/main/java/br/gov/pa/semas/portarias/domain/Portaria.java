@@ -43,6 +43,7 @@ public class Portaria implements Serializable {
     private ZonedDateTime deletedAt;
 
     @ManyToOne(fetch = FetchType.LAZY)
+    @JsonIgnoreProperties(value = { "topicos" }, allowSetters = true)
     private Assunto assunto;
 
     @ManyToOne(fetch = FetchType.LAZY)

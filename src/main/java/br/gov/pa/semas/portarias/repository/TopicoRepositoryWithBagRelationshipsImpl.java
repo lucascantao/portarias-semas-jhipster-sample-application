@@ -24,7 +24,7 @@ public class TopicoRepositoryWithBagRelationshipsImpl implements TopicoRepositor
 
     @Override
     public Optional<Topico> fetchBagRelationships(Optional<Topico> topico) {
-        return topico.map(this::fetchAjudas);
+        return topico.map(this::fetchAjudas).map(this::fetchAssuntos);
     }
 
     @Override
@@ -34,7 +34,7 @@ public class TopicoRepositoryWithBagRelationshipsImpl implements TopicoRepositor
 
     @Override
     public List<Topico> fetchBagRelationships(List<Topico> topicos) {
-        return Optional.of(topicos).map(this::fetchAjudas).orElse(Collections.emptyList());
+        return Optional.of(topicos).map(this::fetchAjudas).map(this::fetchAssuntos).orElse(Collections.emptyList());
     }
 
     Topico fetchAjudas(Topico result) {
@@ -49,6 +49,24 @@ public class TopicoRepositoryWithBagRelationshipsImpl implements TopicoRepositor
         IntStream.range(0, topicos.size()).forEach(index -> order.put(topicos.get(index).getId(), index));
         List<Topico> result = entityManager
             .createQuery("select topico from Topico topico left join fetch topico.ajudas where topico in :topicos", Topico.class)
+            .setParameter(TOPICOS_PARAMETER, topicos)
+            .getResultList();
+        Collections.sort(result, (o1, o2) -> Integer.compare(order.get(o1.getId()), order.get(o2.getId())));
+        return result;
+    }
+
+    Topico fetchAssuntos(Topico result) {
+        return entityManager
+            .createQuery("select topico from Topico topico left join fetch topico.assuntos where topico.id = :id", Topico.class)
+            .setParameter(ID_PARAMETER, result.getId())
+            .getSingleResult();
+    }
+
+    List<Topico> fetchAssuntos(List<Topico> topicos) {
+        HashMap<Object, Integer> order = new HashMap<>();
+        IntStream.range(0, topicos.size()).forEach(index -> order.put(topicos.get(index).getId(), index));
+        List<Topico> result = entityManager
+            .createQuery("select topico from Topico topico left join fetch topico.assuntos where topico in :topicos", Topico.class)
             .setParameter(TOPICOS_PARAMETER, topicos)
             .getResultList();
         Collections.sort(result, (o1, o2) -> Integer.compare(order.get(o1.getId()), order.get(o2.getId())));
