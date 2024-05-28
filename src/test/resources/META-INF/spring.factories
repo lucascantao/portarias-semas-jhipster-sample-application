@@ -1,0 +1,2 @@
+org.springframework.test.context.ContextCustomizerFactory = br.gov.pa.semas.\
+    portarias.config.SqlTestContainersSpringContextCustomizerFactory
